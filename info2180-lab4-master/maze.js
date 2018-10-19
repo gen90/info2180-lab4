@@ -1,5 +1,6 @@
 //Exercise 1
 let touch = false;
+let started = false;
 window.onload = function(){
     let bound1 = document.getElementById('boundary1');
     bound1.addEventListener("mouseover",change);
@@ -9,7 +10,8 @@ window.onload = function(){
         allBound[x].addEventListener("mouseover",change);  
     }
 
-    document.getElementById('end').addEventListener("mouseover",win);   
+    document.getElementById('end').addEventListener("mouseover",win);
+    document.getElementById('start').addEventListener("click",start);   
 }
 
 function change(){
@@ -18,9 +20,20 @@ function change(){
 }
 
 function win(){
-    if(!(touch)){
+    if(!(touch) && started){
         alert("You win!!");
     }
+}
+
+function start(){
+    started = true;
+    touch = false;
+
+    var all = document.querySelectorAll('.boundary');
+    for(var i=0;i<all.length;i++){
+        all[i].style.backgroundColor ='#eeeeee';   
+    }
+
 }
 
 window.onload;
