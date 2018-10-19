@@ -8,12 +8,13 @@ window.onload = function(){
     bound1.addEventListener("mouseover",change);
 
     var allBound = document.querySelectorAll('.boundary');
-    for(let x = 1;x<allBound.length -1;x++){
+    for(let x = 1;x<allBound.length ;x++){
         allBound[x].addEventListener("mouseover",change);  
     }
 
     document.getElementById('end').addEventListener("mouseover",win);
     document.getElementById('start').addEventListener("click",start);   
+    document.getElementById('maze').addEventListener("mouseleave",lose);
 }
 
 function change(){
@@ -22,6 +23,17 @@ function change(){
         touch = true;
         document.getElementById('status').innerHTML = "<h2>You Lose</h2>";
     }
+}
+
+function lose(){
+    if(started && !(ended)){
+        let all = document.querySelectorAll('.boundary');
+        for(let i=0;i<all.length;i++){
+            all[i].classList.add("youlose");
+        }
+        document.getElementById('status').innerHTML = "<h2>You Lose</h2>";
+    }
+
 }
 
 function win(){
