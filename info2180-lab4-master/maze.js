@@ -17,11 +17,12 @@ window.onload = function(){
 function change(){
     this.classList.add("youlose");
     touch = true;
+   
 }
 
 function win(){
     if(!(touch) && started){
-        alert("You win!!");
+        alert("You Win!!")
     }
 }
 
@@ -31,7 +32,7 @@ function start(){
 
     var all = document.querySelectorAll('.boundary');
     for(var i=0;i<all.length;i++){
-        all[i].style.backgroundColor ='#eeeeee';   
+        all[i].classList.remove("youlose");
     }
 
 }
